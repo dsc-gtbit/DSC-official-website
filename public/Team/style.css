@@ -1,0 +1,19 @@
+.teamcard {
+    border: 0px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    float: none;
+    border-radius: 8px;
+    background-color: #0A192F;
+}
+
+.teamcard img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 2px solid rgb(169 202 214);
+
+}
+
+.teamcard i {
+    color: grey
+}

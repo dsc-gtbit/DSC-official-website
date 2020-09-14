@@ -1,0 +1,24 @@
+.card-body>p{
+    height: 150px;
+}
+
+
+#projectCards .btn:hover{
+    color:white;
+    background: #157FAE;
+}
+
+#projectCards .btn{
+    color:white;
+}
+
+.card-img-top{
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.course-card, .project-card {
+    width: 22rem;
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+}

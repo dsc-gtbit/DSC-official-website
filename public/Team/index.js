@@ -1,5 +1,67 @@
 console.log("Team Page");
 
+let team = {
+  "Board": {
+    title: "Board Members",
+    leads: [],
+    mentors: [],
+    memebers: [],
+  },
+  "Web": {
+    title: "Web Team",
+    leads: [],
+    mentors: [],
+    memebers: [],
+  },
+  "Mobile": {
+    title: "Mobile Team",
+    leads: [],
+    mentors: [],
+    memebers: [],
+  },
+  "ML": {
+    title: "ML Team",
+    leads: [],
+    mentors: [],
+    memebers: [],
+  },
+  "AR/VR": {
+    title: "AR/VR Team",
+    leads: [],
+    mentors: [],
+    memebers: [],
+  },
+  "Cyber": {
+    title: "Cyber Team",
+    leads: [],
+    mentors: [],
+    memebers: [],
+  },
+  "BlockChain": {
+    title: "Blockchain Team",
+    leads: [],
+    mentors: [],
+    memebers: [],
+  },
+  "Management": {
+    title: "Management Team",
+    leads: [],
+    mentors: [],
+    memebers: [],
+  },
+  "Marketing": {
+    title: "Marketing Team",
+    leads: [],
+    mentors: [],
+    memebers: [],
+  },
+  "Designing": {
+    title: "Design Team",
+    leads: [],
+    mentors: [],
+    memebers: [],
+  },
+};
 let data;
 
 window.onload = () => {

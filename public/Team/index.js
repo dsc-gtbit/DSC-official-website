@@ -4,8 +4,7 @@ let team = {
   "Board": {
     title: "Board Members",
     leads: [],
-    mentors: [],
-    memebers: [],
+    coleads: [],
   },
   "Web": {
     title: "Web Team",
@@ -78,13 +77,37 @@ function fetchTeamData() {
     .then((result) => {
       data = result.feed.entry;
       console.log(data);
-      setHtml();
+      setTeamData(data);
+      //setHtml();
     })
     .catch((err) => {
       console.log(err);
     });
 }
 
+function setTeamData(data) {
+  data.forEach((e) => {
+    if (!team[parseKey(e, "department")]) {
+      console.log("dept doesn't exist:", parseKey(e, "department"));
+      return;
+    }
+
+    console.log(parseKey(e, "department"));
+    if (parseKey(e, "designation") === "Lead") {
+      team[parseKey(e, "department")].leads.push(e);
+    } else if (parseKey(e, "designation") === "Colead") {
+      if (team[parseKey(e, "department")].coleads)
+        team[parseKey(e, "department")].coleads.push(e);
+      else console.log("this dept has not colead position");
+    } else if (parseKey(e, "designation") === "Mentor") {
+      team[parseKey(e, "department")].mentors.push(e);
+    } else {
+      team[parseKey(e, "department")].members.push(e);
+    }
+  });
+
+  console.log(team);
+}
 function setHtml() {
   const teamContainer = document.getElementById("teamContainer");
   data = data;
@@ -98,6 +121,5 @@ function setHtml() {
 }
 
 function parseKey(obj, key) {
-  console.log(obj);
   return obj["gsx$" + key].$t;
 }

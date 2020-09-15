@@ -143,7 +143,7 @@ function setHtml() {
     }
 
     if (team[e].members && team[e].members.length > 0) {
-      temp += `  <div class="col-12 mt-5"><div class="positionLine"><div class="position">Members</div></div><div class="row">`;
+      temp += `  <div class="col-12 mt-5" style='display:none' id="${e}-members"><div class="positionLine"><div class="position">Members</div></div><div class="row">`;
       team[e].members.forEach((l) => {
         temp += `${getCardHtml(
           parseKey(l, "name"),
@@ -152,8 +152,8 @@ function setHtml() {
         )}`;
       });
       temp += "</div></div>";
+      temp += `<div class="positionLine w-100 mt-30"><div class="position" onClick="toggleMembers('${e}-members',this)">Show Members</div></div>`;
     }
-
     temp += "</div> </div>";
     //console.log(temp);
     teamContainer.innerHTML += temp;
@@ -204,4 +204,17 @@ function getCardHtml(name, img_url, classValues = "col-6", ...links) {
     </div>
     </div>
   `;
+}
+
+function toggleMembers(id, ele) {
+  console.log(id, ele);
+  const temp = document.getElementById(id);
+  console.log(temp.style.display);
+  if (temp.style.display === "none") {
+    temp.style.display = "block";
+    ele.innerText = "Hide Members";
+  } else {
+    temp.style.display = "none";
+    ele.innerText = "Show Members";
+  }
 }

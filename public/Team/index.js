@@ -120,14 +120,16 @@ function setHtml() {
     temp = "<div class='mb-100'> ";
     temp += `<h4 class="pl-5 mb-4">${e}</h4> <div class="row mx-0">`;
 
-    temp += `  <div class="col-6"><div class="positionLine"><div class="position">Leads</div></div><div class="row justify-content-center">`;
+    temp += `  <div class="col-12 col-md-6"><div class="positionLine"><div class="position">${
+      team[e].leads.length > 1 ? "Leads" : "Lead"
+    }</div></div><div class="row justify-content-center">`;
     team[e].leads.forEach((l) => {
       temp += `  ${getCardHtml(parseKey(l, "name"), parseKey(l, "imageurl"))} `;
     });
     temp += "</div></div>";
 
     if (team[e].coleads) {
-      temp += `  <div class="col-6"><div class="positionLine"><div class="position">Co-Leads</div></div><div class="row">`;
+      temp += `  <div class="col-12 col-md-6 mt-5 mt-md-0"><div class="positionLine"><div class="position">Co-Leads</div></div><div class="row">`;
       team[e].coleads.forEach((l) => {
         temp += `${getCardHtml(parseKey(l, "name"), parseKey(l, "imageurl"))} `;
       });
@@ -135,7 +137,9 @@ function setHtml() {
     }
 
     if (team[e].mentors && team[e].mentors.length > 0) {
-      temp += `  <div class="col-6"><div class="positionLine"><div class="position">Mentors</div></div><div class="row">`;
+      temp += `  <div class="col-12 col-md-6 mt-5 mt-md-0"><div class="positionLine"><div class="position">${
+        team[e].mentors.length > 1 ? "Mentors" : "Mentor"
+      }</div></div><div class="row">`;
       team[e].mentors.forEach((l) => {
         temp += `${getCardHtml(parseKey(l, "name"), parseKey(l, "imageurl"))} `;
       });
@@ -148,11 +152,11 @@ function setHtml() {
         temp += `${getCardHtml(
           parseKey(l, "name"),
           parseKey(l, "imageurl"),
-          "col-3"
+          "col-6 col-md-3"
         )}`;
       });
       temp += "</div></div>";
-      temp += `<div class="positionLine w-100 mt-30"><div class="position" onClick="toggleMembers('${e}-members',this)">Show Members</div></div>`;
+      temp += `<div class="positionLine w-100 mt-30"><div class="position" style='cursor:pointer' onClick="toggleMembers('${e}-members',this)">Show Members</div></div>`;
     }
     temp += "</div> </div>";
     //console.log(temp);
@@ -167,7 +171,7 @@ function parseKey(obj, key) {
 function getCardHtml(name, img_url, classValues = "col-6", ...links) {
   console.log(name, img_url);
   return ` 
-  <div class=${classValues}>
+  <div class="${classValues}">
   <div class="row teamcard">
     <div class="col-12 text-center">
       <img

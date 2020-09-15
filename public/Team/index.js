@@ -117,17 +117,17 @@ function setHtml() {
   console.log(data);
   let temp = " ";
   data.forEach((e) => {
-    temp = "<div> ";
-    temp += `<h5>${e}</h5> <div class="row mx-0">`;
+    temp = "<div class='mb-100'> ";
+    temp += `<h4 class="pl-5 mb-4">${e}</h4> <div class="row mx-0">`;
 
-    temp += `  <div class="col-6"><p>Leads</p><div class="row justify-content-center">`;
+    temp += `  <div class="col-6"><div class="positionLine"><div class="position">Leads</div></div><div class="row justify-content-center">`;
     team[e].leads.forEach((l) => {
       temp += `  ${getCardHtml(parseKey(l, "name"), parseKey(l, "imageurl"))} `;
     });
     temp += "</div></div>";
 
     if (team[e].coleads) {
-      temp += `  <div class="col-6"><p>Co-Lead</p><div class="row">`;
+      temp += `  <div class="col-6"><div class="positionLine"><div class="position">Co-Leads</div></div><div class="row">`;
       team[e].coleads.forEach((l) => {
         temp += `${getCardHtml(parseKey(l, "name"), parseKey(l, "imageurl"))} `;
       });
@@ -135,7 +135,7 @@ function setHtml() {
     }
 
     if (team[e].mentors && team[e].mentors.length > 0) {
-      temp += `  <div class="col-6"><p>Mentors</p><div class="row">`;
+      temp += `  <div class="col-6"><div class="positionLine"><div class="position">Mentors</div></div><div class="row">`;
       team[e].mentors.forEach((l) => {
         temp += `${getCardHtml(parseKey(l, "name"), parseKey(l, "imageurl"))} `;
       });
@@ -143,7 +143,7 @@ function setHtml() {
     }
 
     if (team[e].members && team[e].members.length > 0) {
-      temp += `  <div class="col-12"><p>Members</p><div class="row">`;
+      temp += `  <div class="col-12 mt-5"><div class="positionLine"><div class="position">Members</div></div><div class="row">`;
       team[e].members.forEach((l) => {
         temp += `${getCardHtml(
           parseKey(l, "name"),

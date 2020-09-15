@@ -18,3 +18,15 @@
 .teamcard i {
     color: grey
 }
+
+.positionLine {
+    border-top: 1px white solid;
+    text-align: center;
+}
+
+.positionLine .position {
+    transform: translateY(-25px);
+    background-color: #0a192f;
+    padding: 1rem;
+    display: inline-block;
+}

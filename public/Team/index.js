@@ -10,55 +10,55 @@ let team = {
     title: "Web Team",
     leads: [],
     mentors: [],
-    memebers: [],
+    members: [],
   },
   "Mobile": {
     title: "Mobile Team",
     leads: [],
     mentors: [],
-    memebers: [],
+    members: [],
   },
   "ML": {
     title: "ML Team",
     leads: [],
     mentors: [],
-    memebers: [],
+    members: [],
   },
   "AR/VR": {
     title: "AR/VR Team",
     leads: [],
     mentors: [],
-    memebers: [],
+    members: [],
   },
   "Cyber": {
     title: "Cyber Team",
     leads: [],
     mentors: [],
-    memebers: [],
+    members: [],
   },
   "BlockChain": {
     title: "Blockchain Team",
     leads: [],
     mentors: [],
-    memebers: [],
+    members: [],
   },
   "Management": {
     title: "Management Team",
     leads: [],
     mentors: [],
-    memebers: [],
+    members: [],
   },
   "Marketing": {
     title: "Marketing Team",
     leads: [],
     mentors: [],
-    memebers: [],
+    members: [],
   },
   "Designing": {
     title: "Design Team",
     leads: [],
     mentors: [],
-    memebers: [],
+    members: [],
   },
 };
 let data;
@@ -78,7 +78,7 @@ function fetchTeamData() {
       data = result.feed.entry;
       console.log(data);
       setTeamData(data);
-      //setHtml();
+      setHtml();
     })
     .catch((err) => {
       console.log(err);
@@ -100,26 +100,108 @@ function setTeamData(data) {
         team[parseKey(e, "department")].coleads.push(e);
       else console.log("this dept has not colead position");
     } else if (parseKey(e, "designation") === "Mentor") {
-      team[parseKey(e, "department")].mentors.push(e);
+      if (team[parseKey(e, "department")].mentors)
+        team[parseKey(e, "department")].mentors.push(e);
     } else {
-      team[parseKey(e, "department")].members.push(e);
+      if (team[parseKey(e, "department")].members)
+        team[parseKey(e, "department")].members.push(e);
     }
   });
 
   console.log(team);
 }
+
 function setHtml() {
   const teamContainer = document.getElementById("teamContainer");
-  data = data;
+  let data = Object.keys(team);
+  console.log(data);
+  let temp = " ";
   data.forEach((e) => {
-    teamContainer.innerHTML += `<div class="col-4">
-    <img src=${parseKey(e, "imageurl")} alt="image"/>
-        ${parseKey(e, "name")}
-        </div>
-        `;
+    temp = "<div> ";
+    temp += `<h5>${e}</h5> <div class="row mx-0">`;
+
+    temp += `  <div class="col-6"><p>Leads</p><div class="row justify-content-center">`;
+    team[e].leads.forEach((l) => {
+      temp += `  ${getCardHtml(parseKey(l, "name"), parseKey(l, "imageurl"))} `;
+    });
+    temp += "</div></div>";
+
+    if (team[e].coleads) {
+      temp += `  <div class="col-6"><p>Co-Lead</p><div class="row">`;
+      team[e].coleads.forEach((l) => {
+        temp += `${getCardHtml(parseKey(l, "name"), parseKey(l, "imageurl"))} `;
+      });
+      temp += "</div></div>";
+    }
+
+    if (team[e].mentors && team[e].mentors.length > 0) {
+      temp += `  <div class="col-6"><p>Mentors</p><div class="row">`;
+      team[e].mentors.forEach((l) => {
+        temp += `${getCardHtml(parseKey(l, "name"), parseKey(l, "imageurl"))} `;
+      });
+      temp += "</div></div>";
+    }
+
+    if (team[e].members && team[e].members.length > 0) {
+      temp += `  <div class="col-12"><p>Members</p><div class="row">`;
+      team[e].members.forEach((l) => {
+        temp += `${getCardHtml(
+          parseKey(l, "name"),
+          parseKey(l, "imageurl"),
+          "col-3"
+        )}`;
+      });
+      temp += "</div></div>";
+    }
+
+    temp += "</div> </div>";
+    //console.log(temp);
+    teamContainer.innerHTML += temp;
   });
 }
 
 function parseKey(obj, key) {
   return obj["gsx$" + key].$t;
+}
+
+function getCardHtml(name, img_url, classValues = "col-6", ...links) {
+  console.log(name, img_url);
+  return ` 
+  <div class=${classValues}>
+  <div class="row teamcard">
+    <div class="col-12 text-center">
+      <img
+        src=${img_url}
+        alt="pic"
+      />
+    </div>
+    <div class="col-12 text-center mt-3">${name}</div>
+    <div class="col-12 d-flex justify-content-around my-3">
+      <div>
+        <a
+          href="https://github.com/anniemburu"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div>
+        <a
+          href="https://www.linkedin.com/"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+      <div>
+        <a href="" target="_blank" rel="noopener">
+          <i class="fas fa-link"></i>
+        </a>
+      </div>
+    </div>
+    </div>
+    </div>
+  `;
 }

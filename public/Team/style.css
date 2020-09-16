@@ -45,3 +45,7 @@
     background-color: white;
     color: #0a192f;
 }
+
+.socialLinks:hover {
+    color: white
+}

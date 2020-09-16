@@ -119,20 +119,34 @@ function setHtml() {
   let temp = " ";
   data.forEach((e) => {
     temp = "<div class='mb-100'> ";
-    temp += `<h4 class="pl-5 mb-4">${e}</h4> <div class="row mx-0">`;
+    temp += `<h2 class="mb-4 text-center">${e}</h2> <div class="row mx-0">`;
 
     temp += `  <div class="col-12 col-md-6"><div class="positionLine"><div class="position">${
       team[e].leads.length > 1 ? "Leads" : "Lead"
     }</div></div><div class="row justify-content-center">`;
     team[e].leads.forEach((l) => {
-      temp += `  ${getCardHtml(parseKey(l, "name"), parseKey(l, "imageurl"))} `;
+      temp += `  ${getCardHtml(
+        parseKey(l, "name"),
+        parseKey(l, "imageurl"),
+        undefined,
+        parseKey(l, "github"),
+        parseKey(l, "linkedin"),
+        parseKey(l, "twitter")
+      )} `;
     });
     temp += "</div></div>";
 
     if (team[e].coleads) {
       temp += `  <div class="col-12 col-md-6 mt-5 mt-md-0"><div class="positionLine"><div class="position">Co-Leads</div></div><div class="row">`;
       team[e].coleads.forEach((l) => {
-        temp += `${getCardHtml(parseKey(l, "name"), parseKey(l, "imageurl"))} `;
+        temp += `${getCardHtml(
+          parseKey(l, "name"),
+          parseKey(l, "imageurl"),
+          undefined,
+          parseKey(l, "github"),
+          parseKey(l, "linkedin"),
+          parseKey(l, "twitter")
+        )} `;
       });
       temp += "</div></div>";
     }
@@ -140,9 +154,16 @@ function setHtml() {
     if (team[e].mentors && team[e].mentors.length > 0) {
       temp += `  <div class="col-12 col-md-6 mt-5 mt-md-0"><div class="positionLine"><div class="position">${
         team[e].mentors.length > 1 ? "Mentors" : "Mentor"
-      }</div></div><div class="row">`;
+      }</div></div><div class="row justify-content-center">`;
       team[e].mentors.forEach((l) => {
-        temp += `${getCardHtml(parseKey(l, "name"), parseKey(l, "imageurl"))} `;
+        temp += `${getCardHtml(
+          parseKey(l, "name"),
+          parseKey(l, "imageurl"),
+          undefined,
+          parseKey(l, "github"),
+          parseKey(l, "linkedin"),
+          parseKey(l, "twitter")
+        )} `;
       });
       temp += "</div></div>";
     }
@@ -153,7 +174,10 @@ function setHtml() {
         temp += `${getCardHtml(
           parseKey(l, "name"),
           parseKey(l, "imageurl"),
-          "col-6 col-md-3"
+          "col-6 col-md-3",
+          parseKey(l, "github"),
+          parseKey(l, "linkedin"),
+          parseKey(l, "twitter")
         )}`;
       });
       temp += "</div></div>";
@@ -169,7 +193,14 @@ function parseKey(obj, key) {
   return obj["gsx$" + key].$t;
 }
 
-function getCardHtml(name, img_url, classValues = "col-6", ...links) {
+function getCardHtml(
+  name,
+  img_url,
+  classValues = "col-6",
+  github,
+  linkedin,
+  twitter
+) {
   console.log(name, img_url);
   return ` 
   <div class="${classValues}">
@@ -182,29 +213,43 @@ function getCardHtml(name, img_url, classValues = "col-6", ...links) {
     </div>
     <div class="col-12 text-center mt-3">${name}</div>
     <div class="col-12 d-flex justify-content-around my-3">
-      <div>
+      ${
+        github
+          ? `<div>
+            <a
+              href=${github}
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fab fa-github socialLinks" ></i>
+            </a>
+          </div>`
+          : ""
+      }
+
+      ${
+        linkedin
+          ? `<div>
         <a
-          href="https://github.com/anniemburu"
+          href=${linkedin}
           target="_blank"
           rel="noopener"
         >
-          <i class="fab fa-github"></i>
+          <i class="fab fa-linkedin socialLinks"></i>
         </a>
-      </div>
-      <div>
-        <a
-          href="https://www.linkedin.com/"
-          target="_blank"
-          rel="noopener"
-        >
-          <i class="fab fa-linkedin"></i>
+      </div>`
+          : ""
+      }
+
+    ${
+      twitter
+        ? `<div>
+        <a href=${twitter} target="_blank" rel="noopener">
+          <i class="fab fa-twitter socialLinks"></i>
         </a>
-      </div>
-      <div>
-        <a href="" target="_blank" rel="noopener">
-          <i class="fas fa-link"></i>
-        </a>
-      </div>
+      </div>`
+        : ""
+    }
     </div>
     </div>
     </div>

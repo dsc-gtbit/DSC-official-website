@@ -113,6 +113,7 @@ function setTeamData(data) {
 
 function setHtml() {
   const teamContainer = document.getElementById("teamContainer");
+  teamContainer.innerHTML = " ";
   let data = Object.keys(team);
   console.log(data);
   let temp = " ";

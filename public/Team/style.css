@@ -30,3 +30,18 @@
     padding: 1rem;
     display: inline-block;
 }
+
+.positionLine .showMemberBtn {
+    cursor: pointer;
+    transform: translateY(-18px);
+    background-color: #0a192f;
+    padding: .5rem;
+    display: inline-block;
+    border-radius: 10px;
+    transition: all .4s;
+}
+
+.positionLine .showMemberBtn:hover {
+    background-color: white;
+    color: #0a192f;
+}

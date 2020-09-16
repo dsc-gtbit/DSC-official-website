@@ -157,7 +157,7 @@ function setHtml() {
         )}`;
       });
       temp += "</div></div>";
-      temp += `<div class="positionLine w-100 mt-30"><div class="position" style='cursor:pointer' onClick="toggleMembers('${e}-members',this)">Show Members</div></div>`;
+      temp += `<div class="positionLine w-100 mt-30"><div class="showMemberBtn" onClick="toggleMembers('${e}-members',this)">Show Members</div></div>`;
     }
     temp += "</div> </div>";
     //console.log(temp);

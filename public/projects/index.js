@@ -9,14 +9,16 @@ fetch("https://spreadsheets.google.com/feeds/list/1WFacDnB1Ro-1Zs3SRcxR3hcLH_Swn
     console.log(totalProjects)
 
     for (let i = 0; i < totalProjects; i++) {
-        if(i%3==0){
-            var project_row = document.createElement("div");
-            project_row.classList.add("row"); 
-            project_container.appendChild(project_row);
-        }
+        // if(i%3==0){
+        //     var project_row = document.createElement("div");
+        //     project_row.classList.add("row"); 
+        //     project_container.appendChild(project_row);
+        // }
         var project_card = document.createElement("div");
         project_card.classList.add("col-md-4", "col-12","project_card");
-        project_row.appendChild(project_card);
+        project_card.style.marginTop="20px";
+        project_card.style.marginBottom="20px";
+        project_container.appendChild(project_card);
 
         var project_card_container = document.createElement("div");
         project_card_container.classList.add("project-card-container");
@@ -118,9 +120,17 @@ fetch("https://spreadsheets.google.com/feeds/list/1WFacDnB1Ro-1Zs3SRcxR3hcLH_Swn
 });
 
 function extractor(url_id){
-    var id = url_id.split("=");
-    url_link="https://drive.google.com/uc?export=view&id="
-    var url = url_link.concat(id[1]);
+    console.log(url_id.search("google.com"));
+    if (url_id.search("google.com")!=-1){
+        var id = url_id.split("=");
+        url_link="https://drive.google.com/uc?export=view&id="
+        var url = url_link.concat(id[1]);
+    }
+    else
+    {
+        url = url_id;
+    }
+
     console.log(url);
     return url;
 }

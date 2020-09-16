@@ -5,23 +5,19 @@
 .row{
     margin-bottom: 30px;
 }
-
-#projectCards .btn:hover{
-    color:white;
-    background: #157FAE;
-}
-
-#projectCards .btn{
-    color:white;
-}
-
 .card-img-top{
     padding: 10px;
     border-radius: 25px;
 }
 
+
+.project-card-front .card-img-top{
+    padding: 0;
+    border-radius: 5px 5px 0 0;
+}
+
 .course-card, .project-card {
-    width: 22rem;
+    width: 23rem;
     margin: 0 auto 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 9), 0 6px 20px 0 rgba(0,  0, 0, 0.9);
 }
@@ -41,7 +37,7 @@
     transform-style: preserve-3d;
 }
 
-.project_card .project-card-container:hover{
+.project_card:hover .project-card-container{
     transform: rotateY(180deg);
 }
 
@@ -51,17 +47,12 @@
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
+    background-color: #173055;
+    color: white;
 }
 
 .project-card-back{
-    background-color: #0a192f;
-    color: white;
     transform: rotateY(180deg);
-}
-
-.project-card-front{
-    background-color: #0a192f;
-    color: white;
 }
 
 .card-text{
@@ -105,4 +96,14 @@
 
 .social-handles a:not([href]):not([tabindex]):hover,.items h1 a:not([href]):not([tabindex]):hover{
     color: #0056b3;
+}
+
+
+.row{
+    justify-content: space-evenly;
+}
+
+
+.col-md-4 {
+    max-width: max-content;
 }

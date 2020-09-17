@@ -118,7 +118,7 @@ function setHtml() {
   console.log(data);
   let temp = " ";
   data.forEach((e) => {
-    temp = "<div class='mb-100'> ";
+    temp = "<div class='mb-100 wow fadeInUp'> ";
     temp += `<h2 class="mb-4 text-center">${e}</h2> <div class="row mx-0">`;
 
     temp += `  <div class="col-12 col-md-6"><div class="positionLine"><div class="position">${
@@ -169,7 +169,7 @@ function setHtml() {
     }
 
     if (team[e].members && team[e].members.length > 0) {
-      temp += `  <div class="col-12 mt-5" style='display:none' id="${e}-members"><div class="positionLine"><div class="position">Members</div></div><div class="row">`;
+      temp += `  <div class="col-12 mt-5 wow fadeInUp" style='display:none' id="${e}-members"><div class="positionLine"><div class="position">Members</div></div><div class="row">`;
       team[e].members.forEach((l) => {
         temp += `${getCardHtml(
           parseKey(l, "name"),

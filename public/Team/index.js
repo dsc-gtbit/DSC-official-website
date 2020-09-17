@@ -1,5 +1,3 @@
-console.log("Team Page");
-
 let team = {
   "Board": {
     title: "Board Members",
@@ -69,14 +67,14 @@ window.onload = () => {
 };
 
 function fetchTeamData() {
-  console.log("featching team data");
+  //console.log("featching team data");
   const url =
     "https://spreadsheets.google.com/feeds/list/158UVlY_oswJSCLbjl2uQu2qEKi9greNvYO5kveXvRiQ/1/public/full?alt=json";
   fetch(url)
     .then((res) => res.json())
     .then((result) => {
       data = result.feed.entry;
-      console.log(data);
+      //console.log(data);
       setTeamData(data);
       setHtml();
     })
@@ -108,14 +106,14 @@ function setTeamData(data) {
     }
   });
 
-  console.log(team);
+  //console.log(team);
 }
 
 function setHtml() {
   const teamContainer = document.getElementById("teamContainer");
   teamContainer.innerHTML = " ";
   let data = Object.keys(team);
-  console.log(data);
+  //console.log(data);
   let temp = " ";
   data.forEach((e) => {
     temp = "<div class='mb-100 wow fadeInUp'> ";
@@ -201,7 +199,7 @@ function getCardHtml(
   linkedin,
   twitter
 ) {
-  console.log(name, img_url);
+  //console.log(name, img_url);
   return ` 
   <div class="${classValues}">
   <div class="row teamcard">
@@ -257,9 +255,9 @@ function getCardHtml(
 }
 
 function toggleMembers(id, ele) {
-  console.log(id, ele);
+  //console.log(id, ele);
   const temp = document.getElementById(id);
-  console.log(temp.style.display);
+  //console.log(temp.style.display);
   if (temp.style.display === "none") {
     temp.style.display = "block";
     ele.innerText = "Hide Members";

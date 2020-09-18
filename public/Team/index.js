@@ -58,12 +58,6 @@ let team = {
     mentors: [],
     members: [],
   },
-  "Content Writing": {
-    title: "Content",
-    leads: [],
-    mentors: [],
-    members: [],
-  },
   "Competitive Coding": {
     title: "Competitive ",
     leads: [],

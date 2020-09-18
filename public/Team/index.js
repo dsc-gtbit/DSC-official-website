@@ -1,59 +1,71 @@
 let team = {
   "Board": {
-    title: "Board Members",
+    title: "Board",
     leads: [],
     coleads: [],
   },
   "Web": {
-    title: "Web Team",
+    title: "Web",
     leads: [],
     mentors: [],
     members: [],
   },
-  "Mobile": {
-    title: "Mobile Team",
+  "App": {
+    title: "Mobile",
     leads: [],
     mentors: [],
     members: [],
   },
-  "ML": {
-    title: "ML Team",
+  "ML / AI / Data Science": {
+    title: "ML",
     leads: [],
     mentors: [],
     members: [],
   },
-  "AR/VR": {
-    title: "AR/VR Team",
+  "Game Development/ AR/VR": {
+    title: "AR/VR ",
     leads: [],
     mentors: [],
     members: [],
   },
-  "Cyber": {
-    title: "Cyber Team",
+  "CyberSecurity": {
+    title: "Cyber ",
     leads: [],
     mentors: [],
     members: [],
   },
   "BlockChain": {
-    title: "Blockchain Team",
+    title: "Blockchain ",
     leads: [],
     mentors: [],
     members: [],
   },
   "Management": {
-    title: "Management Team",
+    title: "Management ",
     leads: [],
     mentors: [],
     members: [],
   },
   "Marketing": {
-    title: "Marketing Team",
+    title: "Marketing ",
     leads: [],
     mentors: [],
     members: [],
   },
   "Designing": {
-    title: "Design Team",
+    title: "Design ",
+    leads: [],
+    mentors: [],
+    members: [],
+  },
+  "Content Writing": {
+    title: "Content",
+    leads: [],
+    mentors: [],
+    members: [],
+  },
+  "Competitive Coding": {
+    title: "Competitive ",
     leads: [],
     mentors: [],
     members: [],
@@ -93,7 +105,7 @@ function setTeamData(data) {
     console.log(parseKey(e, "department"));
     if (parseKey(e, "designation") === "Lead") {
       team[parseKey(e, "department")].leads.push(e);
-    } else if (parseKey(e, "designation") === "Colead") {
+    } else if (parseKey(e, "designation") === "Co-Lead") {
       if (team[parseKey(e, "department")].coleads)
         team[parseKey(e, "department")].coleads.push(e);
       else console.log("this dept has not colead position");
@@ -116,8 +128,8 @@ function setHtml() {
   //console.log(data);
   let temp = " ";
   data.forEach((e) => {
-    temp = "<div class='mb-100 wow fadeInUp'> ";
-    temp += `<h2 class="mb-4 text-center">${e}</h2> <div class="row mx-0">`;
+    temp = "<div class='mb-40 wow fadeInUp'> ";
+    temp += `<h2 class="mb-4 text-center">${team[e].title}</h2> <div class="row mx-0">`;
 
     temp += `  <div class="col-12 col-md-6"><div class="positionLine"><div class="position">${
       team[e].leads.length > 1 ? "Leads" : "Lead"
@@ -179,7 +191,7 @@ function setHtml() {
         )}`;
       });
       temp += "</div></div>";
-      temp += `<div class="positionLine w-100 mt-30"><div class="showMemberBtn" onClick="toggleMembers('${e}-members',this)">Show Members</div></div>`;
+      temp += `<div class="positionLine mx-auto mt-30" style='width:98%'><div class="showMemberBtn" onClick="toggleMembers('${e}-members',this)">Show Members</div></div>`;
     }
     temp += "</div> </div>";
     //console.log(temp);
@@ -188,7 +200,7 @@ function setHtml() {
 }
 
 function parseKey(obj, key) {
-  return obj["gsx$" + key].$t;
+  return obj["gsx$" + key].$t.trim();
 }
 
 function getCardHtml(

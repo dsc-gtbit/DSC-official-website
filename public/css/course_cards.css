@@ -208,7 +208,6 @@
     transition: box-shadow .2s linear, opacity .2s linear, -webkit-box-shadow .2s linear
 
 }
-}
 
 .tensorsite-card .tensorsite-content:before {
     background: -webkit-gradient(linear, left top, right top, from(#ff6f00), to(#ff9100));

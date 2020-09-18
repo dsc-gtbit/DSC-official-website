@@ -205,7 +205,7 @@ function getCardHtml(
   <div class="row teamcard">
     <div class="col-12 text-center">
       <img
-        src=${img_url}
+        src=${extractor(img_url)}
         alt="pic"
       />
     </div>
@@ -265,4 +265,22 @@ function toggleMembers(id, ele) {
     temp.style.display = "none";
     ele.innerText = "Show Members";
   }
+}
+
+function extractor(url_id) {
+  //console.log(url_id.search("google.com"));
+  if (url_id) {
+    if (url_id.search("google.com") != -1) {
+      var id = url_id.split("=");
+      url_link = "https://drive.google.com/uc?export=view&id=";
+      var url = url_link.concat(id[1]);
+    } else {
+      url = url_id;
+    }
+
+    return url;
+  } else
+    return "https://drive.google.com/thumbnail?id=1mz35ArVCMbBHQTXebpm2OWFoTvTMrkXA";
+
+  //console.log(url);
 }

@@ -1,0 +1,109 @@
+.card-body>p{
+    height: 150px;
+}
+
+.row{
+    margin-bottom: 30px;
+}
+.card-img-top{
+    padding: 10px;
+    border-radius: 25px;
+}
+
+
+.project-card-front .card-img-top{
+    padding: 0;
+    border-radius: 5px 5px 0 0;
+}
+
+.course-card, .project-card {
+    width: 23rem;
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 9), 0 6px 20px 0 rgba(0,  0, 0, 0.9);
+}
+
+.project_card{
+    background-color: transparent;
+    height: 400px;
+    perspective: 1000px;
+}
+
+.project-card-container{
+    position: relative;
+    transition: transform 0.6s;
+    text-align: center;
+    width: 23rem;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.project_card:hover .project-card-container{
+    transform: rotateY(180deg);
+}
+
+
+.project-card-front, .project-card-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #173055;
+    color: white;
+}
+
+.project-card-back{
+    transform: rotateY(180deg);
+}
+
+.card-text{
+    padding: 20px;
+    text-align: justify ;
+}
+
+.card-title{
+    padding: 15px;
+    padding-bottom: 0;
+    margin: 0;
+}
+
+.items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.social-handles{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    font-size: 35px;
+}
+
+.social-handles a, .items h1 a{
+    color: white;
+}
+.social-handles a:hover, .items h1 a:hover {
+    color: #0056b3;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.social-handles a:not([href]):not([tabindex]),.items h1 a:not([href]):not([tabindex]){
+    color: white;
+}
+
+.social-handles a:not([href]):not([tabindex]):hover,.items h1 a:not([href]):not([tabindex]):hover{
+    color: #0056b3;
+}
+
+
+.row{
+    justify-content: space-evenly;
+}
+
+
+.col-md-4 {
+    max-width: max-content;
+}

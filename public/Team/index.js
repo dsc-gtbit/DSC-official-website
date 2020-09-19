@@ -40,6 +40,12 @@ let team = {
     mentors: [],
     members: [],
   },
+  "Competitive Coding": {
+    title: "Competitive ",
+    leads: [],
+    mentors: [],
+    members: [],
+  },
   "Management": {
     title: "Management ",
     leads: [],
@@ -54,12 +60,6 @@ let team = {
   },
   "Designing": {
     title: "Design ",
-    leads: [],
-    mentors: [],
-    members: [],
-  },
-  "Competitive Coding": {
-    title: "Competitive ",
     leads: [],
     mentors: [],
     members: [],

@@ -53,7 +53,7 @@ let team = {
     members: [],
   },
   "Marketing": {
-    title: "Marketing ",
+    title: "Outreach & Marketing",
     leads: [],
     mentors: [],
     members: [],

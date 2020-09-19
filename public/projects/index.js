@@ -133,6 +133,7 @@ fetch(
       var items_a = document.createElement("a");
       items_a.href = projects[i]["gsx$hostedlink"]["$t"];
       items_a.classList.add("btn", "btn-primary");
+      items_a.setAttribute("target","_blank");
       items_a.innerText = "View Project";
       project_card_back_items.appendChild(items_a);
     }

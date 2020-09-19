@@ -12,19 +12,19 @@ async function getEventsData(url) {
 	// console.log(entries[1].gsx$description.$t);
 	for (index in entries) {
 		// console.log(entries[index].gsx$description.$t);
-		console.log(entries[index].gsx$date.$t);
+		// console.log(entries[index].gsx$date.$t);
 		// console.log(now);
 		const now = new Date();
 		now;
 		const compareDate = new Date(entries[index].gsx$date.$t);
 
 		const now_ms = now.getTime();
-		const compareDate_ms = now.getTime();
+		const compareDate_ms = compareDate.getTime();
 
 		// console.log(compareDate);
 		// console.log(compareDate_ms);
 
-		if (now_ms > compareDate_ms) {
+		if (now_ms < compareDate_ms) {
 			console.log("upcoming");
 			upcomingDiv.innerHTML += `
 

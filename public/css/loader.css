@@ -1,0 +1,51 @@
+.loader_container {
+    background-color: none;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader_container div {
+    width: .8rem;
+    height: .8rem;
+    border-radius: 50%;
+    animation-name: moveupdown;
+    animation-duration: 1.2s;
+    animation-iteration-count: infinite;
+    position: relative;
+    margin: 5px;
+}
+
+.red {
+    background-color: #ea4335;
+}
+
+.blue {
+    animation-delay: 0.3s;
+    background-color: #4285f4;
+}
+
+.yellow {
+    animation-delay: 0.6s;
+    background-color: #fbbc05;
+}
+
+.green {
+    animation-delay: 0.9s;
+    background-color: #34a853;
+}
+
+@keyframes moveupdown {
+    0% {
+        top: 0;
+    }
+
+    50% {
+        top: -20px;
+    }
+
+    100% {
+        top: 0;
+    }
+}

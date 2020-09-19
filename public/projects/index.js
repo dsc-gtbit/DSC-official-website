@@ -10,6 +10,9 @@ fetch(
 
     console.log(projects);
 
+    // removing loader
+    document.querySelector(".loader_container").style.display = "none";
+
     for (let i = 0; i < totalProjects; i++) {
       // if(i%3==0){
       //     var project_row = document.createElement("div");

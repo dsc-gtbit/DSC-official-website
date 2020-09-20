@@ -107,6 +107,14 @@ RESPONSIVES
   .footer-widget {
     margin-bottom: 30px;
   }
+
+.developers-right{
+text-align: right;
+}
+}
+@media only screen and (max-width: 575px){.contribute-center{
+ text-align: center;
+}
 }
 
 @media (min-width: 768px) {

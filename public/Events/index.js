@@ -53,11 +53,11 @@ async function getEventsData(url) {
 				</tr>
 				<tr>
 					<td class="text-green"><i class="far fa-clock"></i></td>
-					<td>0900hrs - 1200hrs</td>
+					<td>${entries[index].gsx$time.$t}</td>
 				</tr>
 			</table>
 			<a class="button float-right"
-			href="https://www.meetup.com/GDG-Kisii/events/258696811/"
+			href="${entries[index].gsx$eventlink.$t}"
 			>Attend</a>	
 						</div>
 					</div>
@@ -69,7 +69,7 @@ async function getEventsData(url) {
 		<section class="section-spacer>
 			<div class="container">
 				<div
-					class="row flex-column-reverse flex-sm-row align-items-cengit ter"
+					class="row my-4 flex-column-reverse flex-sm-row align-items-cengit ter"
 				>
 
 					<div class="col-sm-5 mr-auto wow fadeInUp">

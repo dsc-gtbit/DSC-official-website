@@ -541,7 +541,9 @@ p {
   background-color: #0A192F;
 }
 
-.event-card {}
+.event-card {
+  width: 32.5%;
+}
 
 .tagging {
   display: inline-flex;

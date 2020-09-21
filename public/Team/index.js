@@ -185,7 +185,7 @@ function setHtml() {
         )}`;
       });
       temp += "</div></div>";
-      temp += `<div class="positionLine mx-auto mt-30" style='width:98%'><div class="showMemberBtn" onClick="toggleMembers('${e}-members',this)">Show Members</div></div>`;
+      temp += `<div class="positionLine mx-auto mt-30" style='width:100%;border:none'><div class="showMemberBtn" onClick="toggleMembers('${e}-members',this)">Show Members</div></div>`;
     }
     temp += "</div> </div>";
     //console.log(temp);

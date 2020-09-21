@@ -35,8 +35,8 @@ async function getEventsData(url) {
 				<div class="col-md-12 cards event-card wow fadeInUp">
 				<div class="featured-image">
 				<img
-					src="${event_img}"
-					alt="Event one poster"
+					src= ${extractor(entries[index].gsx$imageurl.$t)}
+					alt="Event ${index} poster"
 					class="card-img-top"
 				/>
 				</div>
@@ -108,32 +108,20 @@ async function getEventsData(url) {
 		
 		}
 	}
-
-	var imgUrl = new Url(entries[index].gsx$imageurl.$t);
-				var event_img = document.createElement("img");
-				event_img.classList.add("card-img-top");
-				event_img.setAttribute(
-					"src",
-					extractor(imgUrl)
-				);
-				
+}			
 
 function extractor(url_id) {
-	console.log(url_id.search("google.com"));
-	if (url_id.search("google.com") != -1) {
-	  var id = url_id.split("=");
-	  url_link = "https://drive.google.com/uc?export=view&id=";
-	  var url = url_link.concat(id[1]);
-	} else {
-	  url = url_id;
-	}
-  
-	console.log(url);
-	return url;
+  console.log(url_id.search("google.com"));
+  if (url_id.search("google.com") != -1) {
+    var id = url_id.split("=");
+    url_link = "https://drive.google.com/uc?export=view&id=";
+    var url = url_link.concat(id[1]);
+  } else {
+    url = url_id;
   }
+
+  console.log(url);
+  return url;
 }
 
 getEventsData(api_url);
-
-
-  

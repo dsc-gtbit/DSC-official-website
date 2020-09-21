@@ -78,7 +78,7 @@ async function getEventsData(url) {
 					class="row my-4 flex-column-reverse flex-sm-row align-items-cengit ter"
 				>
 
-					<div class="col-sm-5 mr-auto wow fadeInUp">
+					<div class="col-sm-6 ml-auto wow fadeInUp">
 					<div class="feature-list-wrapper">
 						<div class="content-header">
 							<h2 class="content-title">${entries[index].gsx$name.$t}</h2>
@@ -95,9 +95,9 @@ async function getEventsData(url) {
 						>EVENT &nbsp;&nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></a>
 					</div>
 					</div>
-					<div class="col-sm-7">
-						<div class="feature-list-image">
-						<img src="${extractor(entries[index].gsx$imageurl.$t)}" alt="one event " width="350" height="350">
+					<div class="col-sm-5 my-auto">
+						<div class="feature-list-image my-4">
+						<img src="${extractor(entries[index].gsx$imageurl.$t)}" alt="one event ">
 						</div>
 					</div>
 				</div>

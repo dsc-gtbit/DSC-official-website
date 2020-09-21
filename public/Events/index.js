@@ -7,8 +7,11 @@ const api_url =
 async function getEventsData(url) {
 	const response = await fetch(url);
 	const data = await response.json();
-	const entries = data.feed.entry;
+	var entries = data.feed.entry;
+	
+
 	console.log(entries);
+	
 	// console.log(entries[1].gsx$description.$t);
 	for (index in entries) {
 		// console.log(entries[index].gsx$description.$t);
@@ -27,14 +30,17 @@ async function getEventsData(url) {
 		if (now_ms < compareDate_ms) {
 			console.log("upcoming");
 			upcomingDiv.innerHTML += `
-
-				<div class="row">
-					<div class="card event-card wow fadeInUp">
-					<img
+			
+			<div class='row events'> 
+				<div class="col-md-12 cards event-card wow fadeInUp">
+				<div class="featured-image">
+				<img
+					src="${event_img}"
 					alt="Event one poster"
 					class="card-img-top"
-					data-src="${entries[index].gsx$imageurl.$t}"
 				/>
+				</div>
+				
 				<div class="card-body">
 				<h5 class="card-title">${entries[index].gsx$name.$t}</h5>
 						
@@ -61,8 +67,8 @@ async function getEventsData(url) {
 			>Attend</a>	
 						</div>
 					</div>
-				</div>
 		`;
+		
 		} else {
 			console.log("past");
 			pastDiv.innerHTML += `
@@ -86,21 +92,48 @@ async function getEventsData(url) {
 						class="past-event"
 						target="_blank"
 						rel="noopener"
-						>EVENT PHOTOS&nbsp;&nbsp;<i class="fas fa-camera"></i
+						>EVENT VIDEO&nbsp;&nbsp;<i class="fas fa-camera"></i
 					></a>
 					</div>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-sm-7">
 						<div class="feature-list-image">
-						<img src="${entries[index].gsx$imageurl.$t}" alt="" width="400" height="350">
+						<img src="${entries[index].gsx$imageurl.$t}" alt="one event " width="350" height="350">
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 		`;
+		
 		}
 	}
+
+	var imgUrl = new Url(entries[index].gsx$imageurl.$t);
+				var event_img = document.createElement("img");
+				event_img.classList.add("card-img-top");
+				event_img.setAttribute(
+					"src",
+					extractor(imgUrl)
+				);
+				
+
+function extractor(url_id) {
+	console.log(url_id.search("google.com"));
+	if (url_id.search("google.com") != -1) {
+	  var id = url_id.split("=");
+	  url_link = "https://drive.google.com/uc?export=view&id=";
+	  var url = url_link.concat(id[1]);
+	} else {
+	  url = url_id;
+	}
+  
+	console.log(url);
+	return url;
+  }
 }
 
 getEventsData(api_url);
+
+
+  

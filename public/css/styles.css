@@ -523,9 +523,15 @@ p {
 .event-card {
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
   border-radius: 5px;
-  margin: 0 auto 20px;
+  /* margin: 0 auto 20px; */
+}
+
+.events{
+  width: 30%;
+    display: inline-block;
+    /* margin-left: 25px; */
+    margin-right: 5%;
 }
 
 .course-card,
@@ -535,14 +541,16 @@ p {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.card {
-  float: none;
+.cards {
+  float: left;
+  padding-bottom: 20px !important;
   border-radius: 8px;
   background-color: #0A192F;
 }
 
-.event-card {
-  width: 32.5%;
+.event-card{
+  padding: 0px;
+  margin: 0% 5% 5% 10%;
 }
 
 .tagging {
@@ -843,6 +851,13 @@ p {
   .ml-pic {
     order: -1;
   }
+  .event-card {
+    padding: 0px;
+    margin: 0% 0% 5% 0%;
+}
+.events{
+  width:90% !important;
+}
 }
 
 .hero {
@@ -861,6 +876,7 @@ p {
     margin-top: 150px;
     margin-bottom: 80px;
   }
+  
 }
 
 .hero-content {}
@@ -2429,4 +2445,8 @@ textarea {
     display: block;
     margin: 0 auto;
   }
+
+  .events{
+    width: 45%;
+    }
 }

@@ -55,7 +55,7 @@ async function getEventsData(url) {
 					<td class="text-red">
 						<i class="fas fa-map-marker-alt"></i>
 					</td>
-					<td>${entries[index].gsx$location.$t}</td>
+					<td>${entries[index].gsx$locationorplatform.$t}</td>
 				</tr>
 				<tr>
 					<td class="text-green"><i class="far fa-clock"></i></td>
@@ -83,22 +83,21 @@ async function getEventsData(url) {
 						<div class="content-header">
 							<h2 class="content-title">${entries[index].gsx$name.$t}</h2>
 							<hr />
-							<h6>DATE:${entries[index].gsx$date.$t}</h6>
-							<h6>VENUE:${entries[index].gsx$location.$t}</h6>
+							<h6>DATE:&ensp;${entries[index].gsx$date.$t}</h6>
+							<h6>VENUE:&ensp;${entries[index].gsx$locationorplatform.$t}</h6>
 							<p>${entries[index].gsx$description.$t}</p>
 						</div>
 						<a
-						href="#"
+						href="${entries[index].gsx$eventlink.$t}"
 						class="past-event"
 						target="_blank"
 						rel="noopener"
-						>EVENT VIDEO&nbsp;&nbsp;<i class="fas fa-camera"></i
-					></a>
+						>EVENT &nbsp;&nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></a>
 					</div>
 					</div>
 					<div class="col-sm-7">
 						<div class="feature-list-image">
-						<img src="${entries[index].gsx$imageurl.$t}" alt="one event " width="350" height="350">
+						<img src="${extractor(entries[index].gsx$imageurl.$t)}" alt="one event " width="350" height="350">
 						</div>
 					</div>
 				</div>

@@ -107,13 +107,23 @@ RESPONSIVES
   .footer-widget {
     margin-bottom: 30px;
   }
+
+  .feature-list-image img {
+    height: 250px;
+    width: 250px;
+  }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .client-logo {
     width: calc(20% - 13px);
     margin: 0 auto;
     padding: 0 35px;
+  }
+
+  .feature-list-image img {
+    width: 350px;
+    height: 285px;
   }
 }
 
@@ -174,6 +184,7 @@ RESPONSIVES
     margin-left: auto;
     margin-right: auto;
     display: block;
+    height: 200px;
   }
   /* Screens slider */
   .team-item {

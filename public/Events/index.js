@@ -7,8 +7,11 @@ const api_url =
 async function getEventsData(url) {
 	const response = await fetch(url);
 	const data = await response.json();
-	const entries = data.feed.entry;
+	var entries = data.feed.entry;
+	
+
 	console.log(entries);
+	
 	// console.log(entries[1].gsx$description.$t);
 	for (index in entries) {
 		// console.log(entries[index].gsx$description.$t);
@@ -27,14 +30,17 @@ async function getEventsData(url) {
 		if (now_ms < compareDate_ms) {
 			console.log("upcoming");
 			upcomingDiv.innerHTML += `
-
-				<div class="row">
-					<div class="card event-card wow fadeInUp">
-					<img
-					alt="Event one poster"
+			
+			<div class='row events'> 
+				<div class="col-md-12 cards event-card wow fadeInUp">
+				<div class="featured-image">
+				<img
+					src= ${extractor(entries[index].gsx$imageurl.$t)}
+					alt="Event ${index} poster"
 					class="card-img-top"
-					data-src="${entries[index].gsx$imageurl.$t}"
 				/>
+				</div>
+				
 				<div class="card-body">
 				<h5 class="card-title">${entries[index].gsx$name.$t}</h5>
 						
@@ -49,58 +55,72 @@ async function getEventsData(url) {
 					<td class="text-red">
 						<i class="fas fa-map-marker-alt"></i>
 					</td>
-					<td>${entries[index].gsx$location.$t}</td>
+					<td>${entries[index].gsx$locationorplatform.$t}</td>
 				</tr>
 				<tr>
 					<td class="text-green"><i class="far fa-clock"></i></td>
-					<td>0900hrs - 1200hrs</td>
+					<td>${entries[index].gsx$time.$t}</td>
 				</tr>
 			</table>
 			<a class="button float-right"
-			href="https://www.meetup.com/GDG-Kisii/events/258696811/"
+			href="${entries[index].gsx$eventlink.$t}"
 			>Attend</a>	
 						</div>
 					</div>
-				</div>
 		`;
+		
 		} else {
 			console.log("past");
 			pastDiv.innerHTML += `
 		<section class="section-spacer>
 			<div class="container">
 				<div
-					class="row flex-column-reverse flex-sm-row align-items-cengit ter"
+					class="row my-4 flex-column-reverse flex-sm-row align-items-cengit ter"
 				>
 
-					<div class="col-sm-5 mr-auto wow fadeInUp">
+					<div class="col-sm-6 ml-auto wow fadeInUp">
 					<div class="feature-list-wrapper">
 						<div class="content-header">
 							<h2 class="content-title">${entries[index].gsx$name.$t}</h2>
 							<hr />
-							<h6>DATE:${entries[index].gsx$date.$t}</h6>
-							<h6>VENUE:${entries[index].gsx$location.$t}</h6>
+							<h6>DATE:&ensp;${entries[index].gsx$date.$t}</h6>
+							<h6>VENUE:&ensp;${entries[index].gsx$locationorplatform.$t}</h6>
 							<p>${entries[index].gsx$description.$t}</p>
 						</div>
 						<a
-						href="#"
+						href="${entries[index].gsx$eventlink.$t}"
 						class="past-event"
 						target="_blank"
 						rel="noopener"
-						>EVENT PHOTOS&nbsp;&nbsp;<i class="fas fa-camera"></i
-					></a>
+						>EVENT &nbsp;&nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></a>
 					</div>
 					</div>
-					<div class="col-sm-6">
-						<div class="feature-list-image">
-						<img src="${entries[index].gsx$imageurl.$t}" alt="" width="400" height="350">
+					<div class="col-sm-5 my-auto">
+						<div class="feature-list-image my-4">
+						<img src="${extractor(entries[index].gsx$imageurl.$t)}" alt="one event ">
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 		`;
+		
 		}
 	}
+}			
+
+function extractor(url_id) {
+  console.log(url_id.search("google.com"));
+  if (url_id.search("google.com") != -1) {
+    var id = url_id.split("=");
+    url_link = "https://drive.google.com/uc?export=view&id=";
+    var url = url_link.concat(id[1]);
+  } else {
+    url = url_id;
+  }
+
+  console.log(url);
+  return url;
 }
 
 getEventsData(api_url);

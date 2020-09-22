@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>DSC - GTBIT</title>
+    <title>DSC | GTBIT</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="DSC GTBIT" />
     <meta
@@ -14,6 +14,12 @@
       name="keywords"
       content="dsc, gtbit, guru tegh bahadur institute of technology,google developers, delhi, new delhi, india, computer science"
     />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+      integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <meta name="theme-color" content="#0A192F" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="manifest" href="manifest.json" />
@@ -90,7 +96,7 @@
               top: 50%;
               transform: translateY(-50%);
             "
-            >DSC - GTBIT</span
+            >DSC &nbsp;GTBIT</span
           >
         </a>
         <button
@@ -177,7 +183,7 @@
                 href="https://dsc.community.dev/guru-tegh-bahadur-institute-of-technology/"
                 rel="noopener"
                 target="_blank"
-                ><i class="fab fa-meetup"></i> &nbsp; Become a member</a
+                ><i class="fab fa-google"></i> &nbsp; Become a member</a
               >
               <div class="sponsor">
                 <table>
@@ -663,19 +669,55 @@
         </div>
         <div class="query_form col-md-6">
           <div class="follow text-center">Stay Connected With Us</div>
-          <form method="POST">
-            <input type="text" name="name" placeholder="Full Name" /><br />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email Address"
-            /><br />
-            <textarea name="message" placeholder="Ask Query"></textarea>
-            <button type="submit" class="hero-button" style="padding: 8px 18px">
-              Submit
-            </button>
-          </form>
+          <br />
+          <input
+            type="text"
+            id="form-name"
+            name="name"
+            placeholder="Full Name"
+          /><br />
+          <input
+            type="email"
+            id="form-email"
+            name="email"
+            placeholder="Email Address"
+          /><br />
+          <textarea
+            name="message"
+            id="form-textarea"
+            placeholder="Ask Query"
+          ></textarea>
+          <span id="mail-btn" class="hero-button" style="padding: 8px 18px">
+            Submit
+          </span>
         </div>
+        <script>
+          document.getElementById("mail-btn").addEventListener("click", () => {
+            axios({
+              url: "https://portfolio-os-server.herokuapp.com/dsc-mail",
+              method: "POST",
+              data: {
+                name: document.getElementById("form-name").value,
+                email: document.getElementById("form-email").value,
+                query: document.getElementById("form-textarea").value,
+              },
+            })
+              .then(() => {
+                swal(
+                  "Success",
+                  "Your Query has been send successfully",
+                  "success"
+                );
+              })
+              .catch((err) => {
+                swal(
+                  "Error",
+                  "There is some error occured while sending the query",
+                  "error"
+                );
+              });
+          });
+        </script>
       </div>
     </footer>
     <a href="#" id="scroll" style="display: none"

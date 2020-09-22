@@ -24,11 +24,6 @@
       "type": "image/png"
     },
     {
-      "src": "images/assets/pwa/icon144.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    },
-    {
       "src": "images/assets/pwa/icon152.png",
       "sizes": "152x152",
       "type": "image/png"

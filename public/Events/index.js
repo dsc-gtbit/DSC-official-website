@@ -57,11 +57,12 @@ async function getEventsData(url) {
 					</div>
 		`;
     } else {
-      pastDiv.innerHTML += `
+      pastDiv.innerHTML +=
+        `
 		<section class="section-spacer>
 			<div class="container">
 				<div
-					class="row my-4 flex-column-reverse flex-sm-row align-items-cengit ter"
+					class="row my-4 flex-column-reverse flex-sm-row align-items-center"
 				>
 
 					<div class="col-sm-6 ml-auto wow fadeInUp">
@@ -72,14 +73,16 @@ async function getEventsData(url) {
 							<h6>DATE:&ensp;${entries[index].gsx$date.$t}</h6>
 							<h6>VENUE:&ensp;${entries[index].gsx$locationorplatform.$t}</h6>
 							<p>${entries[index].gsx$description.$t}</p>
-						</div>
-						<a
+						</div>` +
+        (entries[index].gsx$eventlink.$t
+          ? `<a
 						href="${entries[index].gsx$eventlink.$t}"
-						class="past-event"
+						class="hero-button"
 						target="_blank"
 						rel="noopener"
-						>EVENT &nbsp;&nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></a>
-					</div>
+						>EVENT &nbsp;&nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></a>`
+          : "") +
+        `</div>
 					</div>
 					<div class="col-sm-5 my-auto">
 						<div class="feature-list-image my-4">

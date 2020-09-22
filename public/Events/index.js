@@ -2,34 +2,22 @@ const pastDiv = document.getElementById("past");
 const upcomingDiv = document.getElementById("upcoming");
 
 const api_url =
-	"https://spreadsheets.google.com/feeds/list/1xT_aIrk3p-1D5H-guczpwBk1NuT-5zh9WM8AL6hOEIw/1/public/full?alt=json";
+  "https://spreadsheets.google.com/feeds/list/1xT_aIrk3p-1D5H-guczpwBk1NuT-5zh9WM8AL6hOEIw/1/public/full?alt=json";
 
 async function getEventsData(url) {
-	const response = await fetch(url);
-	const data = await response.json();
-	var entries = data.feed.entry;
-	
+  const response = await fetch(url);
+  const data = await response.json();
+  var entries = data.feed.entry;
+  for (index in entries) {
+    const now = new Date();
+    now;
+    const compareDate = new Date(entries[index].gsx$date.$t);
 
-	console.log(entries);
-	
-	// console.log(entries[1].gsx$description.$t);
-	for (index in entries) {
-		// console.log(entries[index].gsx$description.$t);
-		// console.log(entries[index].gsx$date.$t);
-		// console.log(now);
-		const now = new Date();
-		now;
-		const compareDate = new Date(entries[index].gsx$date.$t);
+    const now_ms = now.getTime();
+    const compareDate_ms = compareDate.getTime();
 
-		const now_ms = now.getTime();
-		const compareDate_ms = compareDate.getTime();
-
-		// console.log(compareDate);
-		// console.log(compareDate_ms);
-
-		if (now_ms < compareDate_ms) {
-			console.log("upcoming");
-			upcomingDiv.innerHTML += `
+    if (now_ms < compareDate_ms) {
+      upcomingDiv.innerHTML += `
 			
 			<div class='row events'> 
 				<div class="col-md-12 cards event-card wow fadeInUp">
@@ -68,10 +56,8 @@ async function getEventsData(url) {
 						</div>
 					</div>
 		`;
-		
-		} else {
-			console.log("past");
-			pastDiv.innerHTML += `
+    } else {
+      pastDiv.innerHTML += `
 		<section class="section-spacer>
 			<div class="container">
 				<div
@@ -104,13 +90,11 @@ async function getEventsData(url) {
 			</div>
 		</section>
 		`;
-		
-		}
-	}
-}			
+    }
+  }
+}
 
 function extractor(url_id) {
-  console.log(url_id.search("google.com"));
   if (url_id.search("google.com") != -1) {
     var id = url_id.split("=");
     url_link = "https://drive.google.com/uc?export=view&id=";
@@ -118,8 +102,6 @@ function extractor(url_id) {
   } else {
     url = url_id;
   }
-
-  console.log(url);
   return url;
 }
 

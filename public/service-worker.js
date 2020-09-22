@@ -10,10 +10,10 @@ self.addEventListener("fetch", function (event) {
             //   networkResponse
             // );
             if (networkResponse) {
-              console.debug(
-                "updated cached page: " + event.request.url,
-                networkResponse
-              );
+              // console.debug(
+              //   "updated cached page: " + event.request.url,
+              //   networkResponse
+              // );
               if (
                 event.request.method === "GET" &&
                 networkResponse.type === "basic"
@@ -24,7 +24,7 @@ self.addEventListener("fetch", function (event) {
             return networkResponse;
           },
           function (event) {
-            console.log("Error in fetch()", event);
+            // console.log("Error in fetch()", event);
             event.waitUntil(
               caches.open("cache").then(function (cache) {
                 return cache.addAll([
@@ -69,7 +69,7 @@ self.addEventListener("fetch", function (event) {
                   "https://cdn.svgporn.com/logos/algolia.svg",
                   "https://cdn.svgporn.com/logos/google.svg",
                   "https://cdn.svgporn.com/logos/microsoft.svg",
-                  "/service-worker.js",
+                  // "/service-worker.js",
                   "/manifest.json",
                 ]);
               })
@@ -83,5 +83,5 @@ self.addEventListener("fetch", function (event) {
 });
 self.addEventListener("install", function (event) {
   self.skipWaiting();
-  console.log("Latest version installed!");
+  // console.log("Latest version installed!");
 });

@@ -1,16 +1,16 @@
 let team = {
-  "Board": {
+  Board: {
     title: "Board",
     leads: [],
     coleads: [],
   },
-  "Web": {
+  Web: {
     title: "Web",
     leads: [],
     mentors: [],
     members: [],
   },
-  "App": {
+  App: {
     title: "Mobile",
     leads: [],
     mentors: [],
@@ -28,13 +28,13 @@ let team = {
     mentors: [],
     members: [],
   },
-  "CyberSecurity": {
+  CyberSecurity: {
     title: "Cyber ",
     leads: [],
     mentors: [],
     members: [],
   },
-  "BlockChain": {
+  BlockChain: {
     title: "Blockchain ",
     leads: [],
     mentors: [],
@@ -46,19 +46,19 @@ let team = {
     mentors: [],
     members: [],
   },
-  "Management": {
+  Management: {
     title: "Management ",
     leads: [],
     mentors: [],
     members: [],
   },
-  "Marketing": {
+  Marketing: {
     title: "Outreach & Marketing",
     leads: [],
     mentors: [],
     members: [],
   },
-  "Designing": {
+  Designing: {
     title: "Design ",
     leads: [],
     mentors: [],
@@ -68,19 +68,16 @@ let team = {
 let data;
 
 window.onload = () => {
-  console.log("Team Page Loaded");
   fetchTeamData();
 };
 
 function fetchTeamData() {
-  //console.log("featching team data");
   const url =
     "https://spreadsheets.google.com/feeds/list/158UVlY_oswJSCLbjl2uQu2qEKi9greNvYO5kveXvRiQ/1/public/full?alt=json";
   fetch(url)
     .then((res) => res.json())
     .then((result) => {
       data = result.feed.entry;
-      //console.log(data);
       setTeamData(data);
       setHtml();
     })
@@ -96,7 +93,6 @@ function setTeamData(data) {
       return;
     }
 
-    console.log(parseKey(e, "department"));
     if (parseKey(e, "designation") === "Lead") {
       team[parseKey(e, "department")].leads.push(e);
     } else if (parseKey(e, "designation") === "Co-Lead") {
@@ -111,15 +107,12 @@ function setTeamData(data) {
         team[parseKey(e, "department")].members.push(e);
     }
   });
-
-  //console.log(team);
 }
 
 function setHtml() {
   const teamContainer = document.getElementById("teamContainer");
   teamContainer.innerHTML = " ";
   let data = Object.keys(team);
-  //console.log(data);
   let temp = " ";
   data.forEach((e) => {
     temp = "<div class='mb-40 wow fadeInUp'> ";
@@ -188,7 +181,6 @@ function setHtml() {
       temp += `<div class="positionLine mx-auto mt-30" style='width:98%'><div class="showMemberBtn" onClick="toggleMembers('${e}-members',this)">Show Members</div></div>`;
     }
     temp += "</div> </div>";
-    //console.log(temp);
     teamContainer.innerHTML += temp;
   });
 }
@@ -205,7 +197,6 @@ function getCardHtml(
   linkedin,
   twitter
 ) {
-  //console.log(name, img_url);
   return ` 
   <div class="${classValues}">
   <div class="row teamcard">
@@ -261,9 +252,7 @@ function getCardHtml(
 }
 
 function toggleMembers(id, ele) {
-  //console.log(id, ele);
   const temp = document.getElementById(id);
-  //console.log(temp.style.display);
   if (temp.style.display === "none") {
     temp.style.display = "block";
     ele.innerText = "Hide Members";
@@ -274,7 +263,6 @@ function toggleMembers(id, ele) {
 }
 
 function extractor(url_id) {
-  //console.log(url_id.search("google.com"));
   if (url_id) {
     if (url_id.search("google.com") != -1) {
       var id = url_id.split("=");
@@ -287,6 +275,4 @@ function extractor(url_id) {
     return url;
   } else
     return "https://drive.google.com/thumbnail?id=1mz35ArVCMbBHQTXebpm2OWFoTvTMrkXA";
-
-  //console.log(url);
 }

@@ -7,9 +7,6 @@ fetch(
   .then((data) => {
     var totalProjects = data["feed"]["entry"].length;
     var projects = data["feed"]["entry"];
-
-    console.log(projects);
-
     // removing loader
     document.querySelector(".loader_container").style.display = "none";
 
@@ -136,14 +133,13 @@ fetch(
       var items_a = document.createElement("a");
       items_a.href = projects[i]["gsx$hostedlink"]["$t"];
       items_a.classList.add("btn", "btn-primary");
-      items_a.setAttribute("target","_blank");
+      items_a.setAttribute("target", "_blank");
       items_a.innerText = "View Project";
       project_card_back_items.appendChild(items_a);
     }
   });
 
 function extractor(url_id) {
-  console.log(url_id.search("google.com"));
   if (url_id.search("google.com") != -1) {
     var id = url_id.split("=");
     url_link = "https://drive.google.com/uc?export=view&id=";
@@ -151,7 +147,5 @@ function extractor(url_id) {
   } else {
     url = url_id;
   }
-
-  console.log(url);
   return url;
 }

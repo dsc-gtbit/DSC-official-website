@@ -108,10 +108,20 @@ RESPONSIVES
     margin-bottom: 30px;
   }
 
+<<<<<<< HEAD
   .feature-list-image img {
     height: 250px;
     width: 250px;
   }
+=======
+.developers-right{
+text-align: right;
+}
+}
+@media only screen and (max-width: 575px){.contribute-center{
+ text-align: center;
+}
+>>>>>>> d7a7064f074ba2804ae2d8a6bd121a4be922da91
 }
 
 @media (min-width: 769px) {

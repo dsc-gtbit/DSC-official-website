@@ -24,6 +24,9 @@ RESPONSIVES
   .navbar-toggler {
     z-index: 200;
   }
+  .navbar-toggler:focus {
+    outline-width: 0;
+  }
   .custom-menu .custom-menu__right {
     margin: 0;
     width: 100%;

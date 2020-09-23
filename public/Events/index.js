@@ -1,5 +1,6 @@
 const pastDiv = document.getElementById("past");
 const upcomingDiv = document.getElementById("upcoming");
+const loader = document.querySelector(".loader_container");
 
 const api_url =
   "https://spreadsheets.google.com/feeds/list/1xT_aIrk3p-1D5H-guczpwBk1NuT-5zh9WM8AL6hOEIw/1/public/full?alt=json";
@@ -8,6 +9,8 @@ async function getEventsData(url) {
   const response = await fetch(url);
   const data = await response.json();
   var entries = data.feed.entry;
+  loader.style.display = "none";
+
   for (index in entries) {
     const now = new Date();
     now;
@@ -59,7 +62,7 @@ async function getEventsData(url) {
     } else {
       pastDiv.innerHTML +=
         `
-		<section class="section-spacer>
+		<section class="mb-80">
 			<div class="container">
 				<div
 					class="row my-4 flex-column-reverse flex-sm-row align-items-center"
@@ -86,7 +89,9 @@ async function getEventsData(url) {
 					</div>
 					<div class="col-sm-5 my-auto">
 						<div class="feature-list-image my-4">
-						<img src="${extractor(entries[index].gsx$imageurl.$t)}" alt="one event ">
+						<img src="${extractor(
+              entries[index].gsx$imageurl.$t
+            )}" style='border-radius:5px;'alt="one event ">
 						</div>
 					</div>
 				</div>

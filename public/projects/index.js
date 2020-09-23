@@ -52,8 +52,12 @@ fetch(
 
       var project_card_front_p = document.createElement("p");
       project_card_front_p.classList.add("card-text");
+      project_card_front_p.style.overflow = "hidden";
       project_card_front_p.innerText = projects[i]["gsx$projectdescription"]
-        ? projects[i]["gsx$projectdescription"]["$t"]
+        ? projects[i]["gsx$projectdescription"]["$t"].length > 220
+          ? ("" + projects[i]["gsx$projectdescription"]["$t"]).slice(0, 220) +
+            "..."
+          : projects[i]["gsx$projectdescription"]["$t"]
         : " ";
       project_card_front.appendChild(project_card_front_p);
 

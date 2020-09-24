@@ -207,7 +207,11 @@
                 "Success",
                 "Your Query has been send successfully",
                 "success"
-              );
+              ).then(() => {
+                  document.getElementById("form-name").value = "";
+                  document.getElementById("form-email").value = "";
+                  document.getElementById("form-textarea").value = "";
+                });
             })
             .catch((err) => {
               swal(

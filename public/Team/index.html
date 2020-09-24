@@ -1,216 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>DSC - GTBIT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="DSC GTBIT" />
+    <meta
+      name="description"
+      content="Developer Student Clubs (DSC) is a Google Developers program for university students to learn mobile and web development skills."
+    />
+    <meta
+      name="keywords"
+      content="dsc, gtbit, guru tegh bahadur institute of technology,google developers, delhi, new delhi, india, computer science"
+    />
+    <meta name="theme-color" content="#0A192F" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="../images/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="dns-prefetch" href="https://docs.google.com" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700|Material+Icons"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+      crossorigin="anonymous"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>DSC - GTBIT</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="DSC GTBIT" />
-  <meta name="description"
-    content="Developer Student Clubs (DSC) is a Google Developers program for university students to learn mobile and web development skills." />
-  <meta name="keywords"
-    content="dsc, gtbit, guru tegh bahadur institute of technology,google developers, delhi, new delhi, india, computer science" />
-  <meta name="theme-color" content="#0A192F" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="../images/favicon.png" type="image/png" />
-  <link rel="stylesheet" href="../css/responsive.css" />
-  <link rel="stylesheet" href="../css/owl.carousel.min.css" />
-  <link rel="stylesheet" href="../css/bootstrap.min.css" />
-  <link rel="dns-prefetch" href="https://docs.google.com" />
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700|Material+Icons" rel="stylesheet"
-    type="text/css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link href="../css/animate.css" rel="stylesheet" />
+    <!--  preloader -->
+    <link rel="stylesheet" type="text/css" href="../css/pace-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../css/loader.css" />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script src="../js/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
 
-  <link rel="stylesheet" href="../css/styles.css" />
-  <link rel="stylesheet" href="../css/responsive.css" />
-  <link href="../css/animate.css" rel="stylesheet" />
-  <!--  preloader -->
-  <link rel="stylesheet" type="text/css" href="../css/pace-theme.css" />
-  <link rel="stylesheet" type="text/css" href="../css/loader.css" />
-  <link rel="stylesheet" type="text/css" href="./style.css" />
-  <script src="../js/wow.min.js"></script>
-  <script>
-    new WOW().init();
-  </script>
+    <!-- Google Analytics -->
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i["GoogleAnalyticsObject"] = r;
+        (i[r] =
+          i[r] ||
+          function () {
+            (i[r].q = i[r].q || []).push(arguments);
+          }),
+          (i[r].l = 1 * new Date());
+        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(
+        window,
+        document,
+        "script",
+        "https://www.google-analytics.com/analytics.js",
+        "ga"
+      );
+      ga("create", "UA-124904500-1", "auto");
+      ga("send", "pageview");
+    </script>
+    <!-- End Google Analytics -->
+  </head>
 
-  <!-- Google Analytics -->
-  <script>
-    (function (i, s, o, g, r, a, m) {
-      i["GoogleAnalyticsObject"] = r;
-      (i[r] =
-        i[r] ||
-        function () {
-          (i[r].q = i[r].q || []).push(arguments);
-        }),
-      (i[r].l = 1 * new Date());
-      (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
-      a.async = 1;
-      a.src = g;
-      m.parentNode.insertBefore(a, m);
-    })(
-      window,
-      document,
-      "script",
-      "https://www.google-analytics.com/analytics.js",
-      "ga"
-    );
-    ga("create", "UA-124904500-1", "auto");
-    ga("send", "pageview");
-  </script>
-  <!-- End Google Analytics -->
-</head>
-
-<body class="x-hidden has-sticky-header">
-  <nav class="navbar navbar-expand-lg fixed-top custom-menu custom-menu__light">
-    <div class="container">
-      <a class="navbar-brand" href="../">
-        <img src="../images/favicon.png" style="height: 30px; width: 50px" alt="DSC icon" />
-        <span class="position-absolute" style="
+  <body class="x-hidden has-sticky-header">
+    <nav
+      class="navbar navbar-expand-lg fixed-top custom-menu custom-menu__light"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="../">
+          <img
+            src="../images/favicon.png"
+            style="height: 30px; width: 50px"
+            alt="DSC icon"
+          />
+          <span
+            class="position-absolute"
+            style="
               color: white;
               padding-left: 10px;
               top: 50%;
               transform: translateY(-50%);
-            ">DSC - GTBIT</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="menu-icon__circle"> </span>
-        <span class="menu-icon">
-          <span class="menu-icon__bar"></span>
-          <span class="menu-icon__bar"></span>
-          <span class="menu-icon__bar"></span>
-        </span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-lg-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="../">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <!-- <li class="nav-item"><a href="#technologies" class="nav-link">Technologies</a></li> -->
-          <li class="nav-item active">
-            <a href="index.html" class="nav-link">Team</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../projects/">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a href="../Events/" class="nav-link">Events</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../learn/">Learn</a>
-          </li>
-          <!-- <li class="nav-item">	
+            "
+            >DSC - GTBIT</span
+          >
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="menu-icon__circle"> </span>
+          <span class="menu-icon">
+            <span class="menu-icon__bar"></span>
+            <span class="menu-icon__bar"></span>
+            <span class="menu-icon__bar"></span>
+          </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-lg-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../"
+                >Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <!-- <li class="nav-item"><a href="#technologies" class="nav-link">Technologies</a></li> -->
+            <li class="nav-item active">
+              <a href="index.html" class="nav-link">Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../projects/">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a href="../Events/" class="nav-link">Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../learn/">Learn</a>
+            </li>
+            <!-- <li class="nav-item">	
                       <a class="nav-link" href="https://medium.com/search?q=DSCUniversityName" target="_blank" rel="noopener">Stories</a>	
                   </li> -->
-        </ul>
-        <!-- <div class="custom-menu__right">
+          </ul>
+          <!-- <div class="custom-menu__right">
                   <a href="http://meetu.ps/c/3q6jR/zjdKV/f" class="event-btn" rel="noreferrer" target="_blank">Next
                       Event</a>
               </div> -->
-      </div>
-    </div>
-  </nav>
-
-  <section id="team" class="section-spacer team-section">
-    <header class="text-center section-header">
-      <h2 class="section-title wow fadeInUp">Meet The Team</h2>
-      <p class="section-subtitle">
-        Passionate students and faculty staff driving the success of the
-        program.
-      </p>
-    </header>
-    <div id="teamContainer">
-      <div class="loader_container">
-        <div class="red"></div>
-        <div class="blue"></div>
-        <div class="yellow"></div>
-        <div class="green"></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-spacer african vanish">
-    <div class="container"></div>
-  </section>
-
-  <footer class="section-spacer container">
-    <div class="row">
-      <div class="col-12 mb-100 mt-2">
-        <div class="follow text-center">Follow Us On</div>
-        <div>
-          <ul class="social-list__inline md10 text-center">
-            <li>
-              <a href="https://twitter.com/dscgtbit" target="_blank" rel="noopener">
-                <i class="icon-footer fab fa-twitter"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/dsc-gtbit" target="_blank" rel="noopener">
-                <i class="icon-footer fab fa-github"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.facebook.com/dscgtbit" target="_blank" rel="noopener">
-                <i class="icon-footer fab fa-facebook"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/dsc_gtbit/" target="_blank" rel="noopener">
-                <i class="icon-footer fab fa-instagram"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://join.slack.com/t/dscgtbit/shared_invite/zt-h0mxvn91-ok6_FfNAYZgyOLyrXj6tJw"
-                target="_blank" rel="noopener">
-                <i class="icon-footer fab fa-slack"></i>
-              </a>
-            </li>
-            <li>
-              <a href="http://youtube.com/c/DSCGTBIT" target="_blank" rel="noopener">
-                <i class="icon-footer fab fa-youtube"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://medium.com/@dsc.gtbit" target="_blank" rel="noopener">
-                <i class="icon-footer fab fa-medium"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://discord.gg/K3HGaVv" target="_blank" rel="noopener">
-                <i class="icon-footer fab fa-discord"></i>
-              </a>
-            </li>
-          </ul>
         </div>
       </div>
-      <div class="pt-2 pb-5 px-5 mb-5 mb-md-2 col-md-6">
-        <img src="../images/favicon.png" class="footer-img" alt="DSC GTBIT footer logo" style="height: 30px" />
-        <div class="footer-info">
-          Developer Student Clubs are university based community groups for
-          students interested in Google developer technologies.
-          <br /><br />By joining a DSC, students grow their knowledge in a
-          peer-to-peer learning environment and build solutions for local
-          businesses and their community.
+    </nav>
+
+    <section id="team" class="section-spacer team-section">
+      <header class="text-center section-header">
+        <h2 class="section-title wow fadeInUp">Meet The Team</h2>
+        <p class="section-subtitle">
+          Passionate students and faculty staff driving the success of the
+          program.
+        </p>
+      </header>
+      <div id="teamContainer">
+        <div class="loader_container">
+          <div class="red"></div>
+          <div class="blue"></div>
+          <div class="yellow"></div>
+          <div class="green"></div>
         </div>
       </div>
-      <div class="query_form col-md-6">
-        <div class="follow text-center">Stay Connected With Us</div>
-        <br />
-        <input type="text" id="form-name" name="name" placeholder="Full Name" /><br />
-        <input type="email" id="form-email" name="email" placeholder="Email Address" /><br />
-        <textarea name="message" id="form-textarea" placeholder="Ask Query"></textarea>
-        <span id="mail-btn" class="hero-button" style="padding: 8px 18px">
-          Submit
-        </span>
-      </div>
-      <script>
-        document.getElementById("mail-btn").addEventListener("click", () => {
-          axios({
+    </section>
+
+    <section class="section-spacer african vanish">
+      <div class="container"></div>
+    </section>
+
+    <footer class="section-spacer container">
+      <div class="row">
+        <div class="col-12 mb-100 mt-2">
+          <div class="follow text-center">Follow Us On</div>
+          <div>
+            <ul class="social-list__inline md10 text-center">
+              <li>
+                <a
+                  href="https://twitter.com/dscgtbit"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="icon-footer fab fa-twitter"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/dsc-gtbit"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="icon-footer fab fa-github"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/dscgtbit"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="icon-footer fab fa-facebook"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/dsc_gtbit/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="icon-footer fab fa-instagram"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://join.slack.com/t/dscgtbit/shared_invite/zt-h0mxvn91-ok6_FfNAYZgyOLyrXj6tJw"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="icon-footer fab fa-slack"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="http://youtube.com/c/DSCGTBIT"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="icon-footer fab fa-youtube"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://medium.com/@dsc.gtbit"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="icon-footer fab fa-medium"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://discord.gg/K3HGaVv"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="icon-footer fab fa-discord"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="pt-2 pb-5 px-5 mb-5 mb-md-2 col-md-6">
+          <img
+            src="../images/favicon.png"
+            class="footer-img"
+            alt="DSC GTBIT footer logo"
+            style="height: 30px"
+          />
+          <div class="footer-info">
+            Developer Student Clubs are university based community groups for
+            students interested in Google developer technologies.
+            <br /><br />By joining a DSC, students grow their knowledge in a
+            peer-to-peer learning environment and build solutions for local
+            businesses and their community.
+          </div>
+        </div>
+        <div class="query_form col-md-6">
+          <div class="follow text-center">Stay Connected With Us</div>
+          <br />
+          <input
+            type="text"
+            id="form-name"
+            name="name"
+            placeholder="Full Name"
+          /><br />
+          <input
+            type="email"
+            id="form-email"
+            name="email"
+            placeholder="Email Address"
+          /><br />
+          <textarea
+            name="message"
+            id="form-textarea"
+            placeholder="Ask Query"
+          ></textarea>
+          <span id="mail-btn" class="hero-button" style="padding: 8px 18px">
+            Submit
+          </span>
+        </div>
+        <script>
+          document.getElementById("mail-btn").addEventListener("click", () => {
+            axios({
               url: "https://portfolio-os-server.herokuapp.com/dsc-mail",
               method: "POST",
               data: {
@@ -219,47 +297,54 @@
                 query: document.getElementById("form-textarea").value,
               },
             })
-            .then(() => {
-              swal(
-                "Success",
-                "Your Query has been send successfully",
-                "success"
-              );
-            })
-            .catch((err) => {
-              swal(
-                "Error",
-                "There is some error occured while sending the query",
-                "error"
-              );
-            });
+              .then(() => {
+                swal(
+                  "Success",
+                  "Your Query has been send successfully",
+                  "success"
+                ).then(() => {
+                  document.getElementById("form-name").value = "";
+                  document.getElementById("form-email").value = "";
+                  document.getElementById("form-textarea").value = "";
+                });
+              })
+              .catch((err) => {
+                swal(
+                  "Error",
+                  "There is some error occured while sending the query",
+                  "error"
+                );
+              });
+          });
+        </script>
+      </div>
+    </footer>
+    <a href="#" id="scroll" style="display: none"
+      ><i class="fas fa-angle-up"></i
+    ></a>
+    <script>
+      function imageIntersectionObserverCallback(imageEntries, observer) {
+        imageEntries.forEach((imgEntry) => {
+          if (imgEntry.isIntersecting) {
+            imgEntry.target.setAttribute("src", imgEntry.target.dataset.src);
+            observer.unobserve(imgEntry.target);
+          }
         });
-      </script>
-    </div>
-  </footer>
-  <a href="#" id="scroll" style="display: none"><i class="fas fa-angle-up"></i></a>
-  <script>
-    function imageIntersectionObserverCallback(imageEntries, observer) {
-      imageEntries.forEach((imgEntry) => {
-        if (imgEntry.isIntersecting) {
-          imgEntry.target.setAttribute("src", imgEntry.target.dataset.src);
-          observer.unobserve(imgEntry.target);
-        }
-      });
-    }
-
-    const imageObserver = new IntersectionObserver(
-      imageIntersectionObserverCallback, {
-        rootMargin: "30px 0px",
       }
-    );
-    imageObserver.POLL_INTERVAL = 200;
-    imageObserver.USE_MUTATION_OBSERVER = false;
-    document.querySelectorAll("img[data-src]").forEach((img) => {
-      imageObserver.observe(img);
-    });
-  </script>
-  <!-- <script>
+
+      const imageObserver = new IntersectionObserver(
+        imageIntersectionObserverCallback,
+        {
+          rootMargin: "30px 0px",
+        }
+      );
+      imageObserver.POLL_INTERVAL = 200;
+      imageObserver.USE_MUTATION_OBSERVER = false;
+      document.querySelectorAll("img[data-src]").forEach((img) => {
+        imageObserver.observe(img);
+      });
+    </script>
+    <!-- <script>
     function iframeObserverCallback(iframeEntries, observer) {
       iframeEntries.forEach((iframe) => {
         if (
@@ -290,15 +375,14 @@
       });
     }
   </script> -->
-  <script src="../js/vendors/pace.js"></script>
-  <script src="../js/vendors/jquery.min.js"></script>
-  <script src="../js/vendors/bootstrap.bundle.min.js"></script>
-  <script src="../js/vendors/jquery.magnific-popup.min.js"></script>
-  <script src="../js/vendors/jquery.easing.min.js"></script>
-  <script src="../js/vendors/swiper.min.js"></script>
-  <script src="../js/vendors/owl.carousel.min.js"></script>
-  <script src="../js/custom.js"></script>
-  <script src="index.js"></script>
-</body>
-
+    <script src="../js/vendors/pace.js"></script>
+    <script src="../js/vendors/jquery.min.js"></script>
+    <script src="../js/vendors/bootstrap.bundle.min.js"></script>
+    <script src="../js/vendors/jquery.magnific-popup.min.js"></script>
+    <script src="../js/vendors/jquery.easing.min.js"></script>
+    <script src="../js/vendors/swiper.min.js"></script>
+    <script src="../js/vendors/owl.carousel.min.js"></script>
+    <script src="../js/custom.js"></script>
+    <script src="index.js"></script>
+  </body>
 </html>

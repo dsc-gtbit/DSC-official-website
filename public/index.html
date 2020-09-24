@@ -649,11 +649,15 @@
                   <i class="icon-footer fab fa-medium"></i>
                 </a>
               </li>
-		    <li>
-              <a href="https://discord.gg/K3HGaVv" target="_blank" rel="noopener">
-                <i class="icon-footer fab fa-discord"></i>
-              </a>
-            </li>
+              <li>
+                <a
+                  href="https://discord.gg/K3HGaVv"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="icon-footer fab fa-discord"></i>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -712,7 +716,11 @@
                   "Success",
                   "Your Query has been send successfully",
                   "success"
-                );
+                ).then(() => {
+                  document.getElementById("form-name").value = "";
+                  document.getElementById("form-email").value = "";
+                  document.getElementById("form-textarea").value = "";
+                });
               })
               .catch((err) => {
                 swal(
@@ -720,6 +728,11 @@
                   "There is some error occured while sending the query",
                   "error"
                 );
+              })
+              .then(() => {
+                document.getElementById("form-name").value = "";
+                document.getElementById("form-email").value = "";
+                document.getElementById("form-textarea").value = "";
               });
           });
         </script>

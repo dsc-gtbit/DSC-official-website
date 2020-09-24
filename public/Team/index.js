@@ -1,4 +1,8 @@
 let team = {
+  "Wall of Fame": {
+    title: "Wall of Fame",
+    formers: [],
+  },
   Board: {
     title: "Board",
     leads: [],
@@ -92,8 +96,9 @@ function setTeamData(data) {
       console.log("dept doesn't exist:", parseKey(e, "department"));
       return;
     }
-
-    if (parseKey(e, "designation") === "Lead") {
+    if (parseKey(e, "department") === "Wall of Fame") {
+      team[parseKey(e, "department")].formers.push(e);
+    } else if (parseKey(e, "designation") === "Lead") {
       team[parseKey(e, "department")].leads.push(e);
     } else if (parseKey(e, "designation") === "Co-Lead") {
       if (team[parseKey(e, "department")].coleads)
@@ -107,6 +112,7 @@ function setTeamData(data) {
         team[parseKey(e, "department")].members.push(e);
     }
   });
+  //console.log(team);
 }
 
 function setHtml() {
@@ -118,8 +124,26 @@ function setHtml() {
     temp = "<div class='mb-40 wow fadeInUp'> ";
     temp += `<h2 class="mb-4 text-center">${team[e].title}</h2> <div class="row mx-0">`;
 
+    if (team[e].formers) {
+      temp += `  <div class="col-12"><div class="row justify-content-center">`;
+      team[e].formers.forEach((l) => {
+        temp += `  ${getCardHtml(
+          parseKey(l, "name"),
+          parseKey(l, "imageurl"),
+          "col-6 col-md-3",
+          parseKey(l, "github"),
+          parseKey(l, "linkedin"),
+          parseKey(l, "twitter"),
+          parseKey(l, "year")
+        )} `;
+      });
+      temp += "</div></div>";
+      teamContainer.innerHTML += temp;
+      return;
+    }
+
     temp += `  <div class="col-12 col-md-6"><div class="positionLine"><div class="position">${
-      team[e].leads.length > 1 ? "Leads" : "Lead"
+      (team[e].leads && team[e].leads.length) > 1 ? "Leads" : "Lead"
     }</div></div><div class="row justify-content-center">`;
     team[e].leads.forEach((l) => {
       temp += `  ${getCardHtml(
@@ -181,6 +205,7 @@ function setHtml() {
       temp += `<div class="positionLine mx-auto mt-30" style='width:100%;border:none'><div class="showMemberBtn" onClick="toggleMembers('${e}-members',this)">Show Members</div></div>`;
     }
     temp += "</div> </div>";
+
     teamContainer.innerHTML += temp;
   });
 }
@@ -195,7 +220,8 @@ function getCardHtml(
   classValues = "col-6",
   github,
   linkedin,
-  twitter
+  twitter,
+  sec_head
 ) {
   return ` 
   <div class="${classValues}">
@@ -207,6 +233,12 @@ function getCardHtml(
       />
     </div>
     <div class="col-12 text-center mt-3">${name}</div>
+    ${
+      sec_head
+        ? `<div class="col-12 text-center mt-0 text-grey">${sec_head}</div>`
+        : ""
+    }
+    
     <div class="col-12 d-flex justify-content-around my-3">
       ${
         github

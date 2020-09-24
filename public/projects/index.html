@@ -112,9 +112,6 @@
         </div>
       </div>
     </div>
-    </div>
-
-    </div>
   </section>
 
   <section class="section-spacer african vanish">
@@ -207,7 +204,11 @@
                 "Success",
                 "Your Query has been send successfully",
                 "success"
-              );
+              ).then(() => {
+                  document.getElementById("form-name").value = "";
+                  document.getElementById("form-email").value = "";
+                  document.getElementById("form-textarea").value = "";
+                });
             })
             .catch((err) => {
               swal(

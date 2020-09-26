@@ -17,7 +17,7 @@ async function getEventsData(url) {
     const compareDate = new Date(entries[index].gsx$date.$t);
 
     const now_ms = now.getTime();
-    const compareDate_ms = compareDate.getTime();
+    const compareDate_ms = new Time(entries[index].gsx$time.$t);
 
     if (now_ms < compareDate_ms) {
       upcomingDiv.innerHTML += `

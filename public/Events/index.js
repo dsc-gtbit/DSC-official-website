@@ -2,6 +2,28 @@ const pastDiv = document.getElementById("past");
 const upcomingDiv = document.getElementById("upcoming");
 const loader = document.querySelector(".loader_container");
 
+function conTime(date,time){
+	console.log(date);
+	var strDate = date.toString()
+	var tempDate = strDate.split("00:00:00");
+	console.log(tempDate);
+	
+	var strTime = time.toString();
+	if(strTime.indexOf(" AM") !== -1){
+		var tempTime = strTime.split(" AM");
+		var concat = tempDate[0] + tempTime[0] + tempDate[1];
+		var concatDate = Date.parse(concat);
+		return(concatDate);
+	}
+	else if (strTime.indexOf(" PM") !== -1)
+	{
+		tempTime = strTime.split(" PM");
+		var concat = tempDate[0] + tempTime[0] + tempDate[1];
+		var concatDate = Date.parse(concat);
+		return(concatDate+43200000);
+	}
+}
+
 const api_url =
   "https://spreadsheets.google.com/feeds/list/1xT_aIrk3p-1D5H-guczpwBk1NuT-5zh9WM8AL6hOEIw/1/public/full?alt=json";
 
@@ -13,12 +35,9 @@ async function getEventsData(url) {
 
   for (index in entries) {
     const now = new Date();
-    now;
-    const compareDate = new Date(entries[index].gsx$date.$t);
-
-    const now_ms = now.getTime();
-    const compareDate_ms = new Time(entries[index].gsx$time.$t);
-
+	const now_ms = now.getTime();
+	const compareDate = new Date(entries[index].gsx$date.$t);
+	const compareDate_ms = conTime(compareDate,entries[index].gsx$time.$t);
     if (now_ms < compareDate_ms) {
       upcomingDiv.innerHTML += `
 			

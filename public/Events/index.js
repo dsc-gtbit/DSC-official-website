@@ -3,10 +3,8 @@ const upcomingDiv = document.getElementById("upcoming");
 const loader = document.querySelector(".loader_container");
 
 function conTime(date,time){
-	console.log(date);
 	var strDate = date.toString()
 	var tempDate = strDate.split("00:00:00");
-	console.log(tempDate);
 	
 	var strTime = time.toString();
 	if(strTime.indexOf(" AM") !== -1){

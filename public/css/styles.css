@@ -527,11 +527,11 @@ p {
   /* margin: 0 auto 20px; */
 }
 
-.events{
+.events {
   width: 30%;
-    display: inline-block;
-    /* margin-left: 25px; */
-    margin-right: 5%;
+  display: inline-block;
+  /* margin-left: 25px; */
+  margin-right: 5%;
 }
 
 .course-card,
@@ -548,7 +548,7 @@ p {
   background-color: #0A192F;
 }
 
-.event-card{
+.event-card {
   padding: 0px;
   margin: 0% 5% 5% 10%;
 }
@@ -769,7 +769,7 @@ p {
   height: 40px;
   border-radius: 50%;
   display: inline-block;
-  background: #2F5BE7;
+  background: #0a192f;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   position: absolute;
@@ -851,13 +851,15 @@ p {
   .ml-pic {
     order: -1;
   }
+
   .event-card {
     padding: 0px;
     margin: 0% 0% 5% 10%;
-}
-.events{
-  width:90% !important;
-}
+  }
+
+  .events {
+    width: 90% !important;
+  }
 }
 
 .hero {
@@ -877,7 +879,7 @@ p {
     margin-bottom: 80px;
   }
 
-  
+
 }
 
 .hero-content {}
@@ -2222,7 +2224,7 @@ hr {
   box-shadow: 0 3px 6px rgba(0, 110, 255, 0.4);
 }
 
-.hero-button:hover{
+.hero-button:hover {
   cursor: pointer;
 }
 
@@ -2450,9 +2452,9 @@ textarea {
     margin: 0 auto;
   }
 
-  .events{
+  .events {
     width: 45%;
-    }
+  }
 
-    
+
 }

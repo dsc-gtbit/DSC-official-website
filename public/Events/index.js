@@ -1,43 +1,45 @@
 const pastDiv = document.getElementById("past");
 const upcomingDiv = document.getElementById("upcoming");
 const loader = document.querySelector(".loader_container");
+let isUpcomingEventPresent = isPastEventPresent = false;
 
-function conTime(date,time){
+function conTime(date, time) {
 	var strDate = date.toString()
 	var tempDate = strDate.split("00:00:00");
-	
+
 	var strTime = time.toString();
-	if(strTime.indexOf(" AM") !== -1){
+	if (strTime.indexOf(" AM") !== -1) {
 		var tempTime = strTime.split(" AM");
 		var concat = tempDate[0] + tempTime[0] + tempDate[1];
 		var concatDate = Date.parse(concat);
-		return(concatDate);
-	}
-	else if (strTime.indexOf(" PM") !== -1)
-	{
+		return (concatDate);
+	} else if (strTime.indexOf(" PM") !== -1) {
 		tempTime = strTime.split(" PM");
 		var concat = tempDate[0] + tempTime[0] + tempDate[1];
 		var concatDate = Date.parse(concat);
-		return(concatDate+43200000);
+		return (concatDate + 43200000);
 	}
 }
 
 const api_url =
-  "https://spreadsheets.google.com/feeds/list/1xT_aIrk3p-1D5H-guczpwBk1NuT-5zh9WM8AL6hOEIw/1/public/full?alt=json";
+	"https://spreadsheets.google.com/feeds/list/1xT_aIrk3p-1D5H-guczpwBk1NuT-5zh9WM8AL6hOEIw/1/public/full?alt=json";
 
 async function getEventsData(url) {
-  const response = await fetch(url);
-  const data = await response.json();
-  var entries = data.feed.entry;
-  loader.style.display = "none";
+	const response = await fetch(url);
+	const data = await response.json();
+	var entries = data.feed.entry;
+	loader.style.display = "none";
 
-  for (index in entries) {
-    const now = new Date();
-	const now_ms = now.getTime();
-	const compareDate = new Date(entries[index].gsx$date.$t);
-	const compareDate_ms = conTime(compareDate,entries[index].gsx$time.$t);
-    if (now_ms < compareDate_ms) {
-      upcomingDiv.innerHTML += `
+	for (index in entries) {
+		const now = new Date();
+		const now_ms = now.getTime();
+		const compareDate = new Date(entries[index].gsx$date.$t);
+		const compareDate_ms = conTime(compareDate, entries[index].gsx$time.$t);
+		if (now_ms < compareDate_ms) {
+			if (!isUpcomingEventPresent)
+				isUpcomingEventPresent = true;
+
+			upcomingDiv.innerHTML += `
 			
 			<div class='row events'> 
 				<div class="col-md-12 cards event-card wow fadeInUp">
@@ -76,9 +78,12 @@ async function getEventsData(url) {
 						</div>
 					</div>
 		`;
-    } else {
-      pastDiv.innerHTML +=
-        `
+		} else {
+			if (!isPastEventPresent)
+				isPastEventPresent = true;
+
+			pastDiv.innerHTML +=
+				`
 		<section class="mb-80">
 			<div class="container">
 				<div
@@ -94,15 +99,15 @@ async function getEventsData(url) {
 							<h6>VENUE:&ensp;${entries[index].gsx$locationorplatform.$t}</h6>
 							<p>${entries[index].gsx$description.$t}</p>
 						</div>` +
-        (entries[index].gsx$eventlink.$t
-          ? `<a
+				(entries[index].gsx$eventlink.$t ?
+					`<a
 						href="${entries[index].gsx$eventlink.$t}"
 						class="hero-button"
 						target="_blank"
 						rel="noopener"
-						>EVENT &nbsp;&nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></a>`
-          : "") +
-        `</div>
+						>EVENT &nbsp;&nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></a>` :
+					"") +
+				`</div>
 					</div>
 					<div class="col-sm-5 my-auto">
 						<div class="feature-list-image my-4">
@@ -115,19 +120,29 @@ async function getEventsData(url) {
 			</div>
 		</section>
 		`;
-    }
-  }
+		}
+	}
+
+	if (!isUpcomingEventPresent) {
+		upcomingDiv.innerHTML = `<div class='my-5 text-center text-grey'> <i class="fa fa-meh-o" aria-hidden="true"></i>
+		&nbspOops! There is no Upcoming Event</div>`
+	}
+	if (!isPastEventPresent) {
+		pastDiv.innerHTML = `<div class='my-5 text-center text-grey'> <i class="fa fa-meh-o" aria-hidden="true"></i>
+		&nbspOops! There is no Past Event</div>`
+	}
 }
 
+
 function extractor(url_id) {
-  if (url_id.search("google.com") != -1) {
-    var id = url_id.split("=");
-    url_link = "https://drive.google.com/uc?export=view&id=";
-    var url = url_link.concat(id[1]);
-  } else {
-    url = url_id;
-  }
-  return url;
+	if (url_id.search("google.com") != -1) {
+		var id = url_id.split("=");
+		url_link = "https://drive.google.com/uc?export=view&id=";
+		var url = url_link.concat(id[1]);
+	} else {
+		url = url_id;
+	}
+	return url;
 }
 
 getEventsData(api_url);

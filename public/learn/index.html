@@ -345,7 +345,7 @@
           var name = document.getElementById("form-name").value;
           var email = document.getElementById("form-email").value;
           var query = document.getElementById("form-textarea").value;
-          var nameFormat = /^[A-Za-z]*$/;
+          var nameFormat = /^[A-Za-z ]*$/;
           var mailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
           if(query =="" || email =="" || name ==""){
             swal(

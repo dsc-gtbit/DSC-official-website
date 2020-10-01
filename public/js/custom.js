@@ -114,3 +114,19 @@ $(document).ready(function(){
   });
 
 })(jQuery);
+
+// Stop Scrolling with in expanded menu
+
+var navbar = document.getElementsByClassName("navbar-toggler");
+navbar[0].addEventListener("click",function (){
+  var nav = document.getElementById("navbarSupportedContent");
+  var body = document.getElementsByTagName("body");
+  if(!(nav.classList.contains("show")))
+  {
+    body[0].style.overflow="hidden";
+  }
+  else{
+    body[0].removeAttribute("style");
+  }
+
+});

@@ -300,15 +300,15 @@ p {
 }
 
 .btn-primary {
-  background: #3BC1FD;
-  color: #1B2733;
+  background: #173055;
+  color: #ffffff;
 }
 
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:visited {
 
-  background: #3BC1FD;
+  background: #0069d9;
   color: #FFFFFF;
 
 }
@@ -387,7 +387,7 @@ p {
 }
 
 .btn-pills {
-  border-radius: 50px;
+  border-radius: 4px;
 }
 
 .btn-light {
